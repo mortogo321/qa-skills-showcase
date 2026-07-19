@@ -7,18 +7,16 @@ Everything here tests two public practice targets, so the whole repo is runnable
 - **UI**: [SauceDemo](https://www.saucedemo.com) — a demo e-commerce app (login → inventory → cart → checkout)
 - **API**: [Restful-Booker](https://restful-booker.herokuapp.com) — a demo REST API with auth + CRUD
 
-## Why these skills (market snapshot)
+## Skills demonstrated
 
-Based on job-posting analyses and industry career guides (mid-2026):
-
-| Market demand | Demonstrated in this repo |
+| Skill | Where |
 |---|---|
-| **Playwright** — fastest-growing E2E framework, commands a salary premium over legacy stacks | TypeScript UI suite with Page Object Model and custom fixtures |
-| **API testing** — appears in 60%+ of automation postings | Full auth + CRUD chain against a live REST API, including negative checks |
-| **CI/CD integration** — appears in 60%+ of postings; GitHub Actions increasingly preferred | Workflow running typecheck + full suite on every push/PR, with HTML report artifacts |
-| **Performance testing** — requested in 30–60% of postings; k6 is the CI/CD-first choice | k6 smoke script with thresholds, plus documented smoke vs. load/stress/soak distinctions |
-| **Manual / structured testing fundamentals** — still the foundation interviewers probe | Risk-based test plan, 28 written test cases, SBTM exploratory charters, a real bug report, and a traceability matrix |
-| **Strategic thinking over tool familiarity** | Requirements → manual cases → automated specs are linked end-to-end in the traceability matrix |
+| **UI test automation (Playwright + TypeScript)** | UI suite with Page Object Model and custom fixtures |
+| **API testing** | Full auth + CRUD chain against a live REST API, including negative checks |
+| **CI/CD integration (GitHub Actions)** | Workflow running typecheck + full suite on every push/PR, with HTML report artifacts |
+| **Performance testing (k6)** | Smoke script with thresholds, plus documented smoke vs. load/stress/soak distinctions |
+| **Manual / structured testing** | Risk-based test plan, 28 written test cases, SBTM exploratory charters, a real bug report, and a traceability matrix |
+| **Test strategy & traceability** | Requirements → manual cases → automated specs linked end-to-end in the traceability matrix |
 
 ## Repository layout
 
