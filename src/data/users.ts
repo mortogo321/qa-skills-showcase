@@ -3,7 +3,13 @@ export interface SauceUser {
   password: string;
 }
 
-export const PASSWORD = 'secret_sauce';
+// Public demo credentials; override via env when pointing at another environment.
+export const PASSWORD = process.env.SAUCE_PASSWORD || 'secret_sauce';
+
+export const apiCredentials = {
+  username: process.env.BOOKER_USERNAME || 'admin',
+  password: process.env.BOOKER_PASSWORD || 'password123',
+};
 
 export const users = {
   standard: { username: 'standard_user', password: PASSWORD } as SauceUser,

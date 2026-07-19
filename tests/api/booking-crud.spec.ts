@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { apiCredentials } from '../../src/data/users';
 
 // This suite exercises the full booking lifecycle against the public
 // Restful-Booker demo API. Tests run in `.serial` because each step depends
@@ -54,7 +55,7 @@ test.describe.serial('Restful-Booker CRUD', () => {
 
   test('POST /auth returns a token for the update step', async ({ request }) => {
     const res = await request.post('/auth', {
-      data: { username: 'admin', password: 'password123' },
+      data: apiCredentials,
     });
     expect(res.ok()).toBeTruthy();
 

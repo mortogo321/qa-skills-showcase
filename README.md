@@ -55,6 +55,8 @@ bun run report      # open the HTML report
 bun run typecheck   # TypeScript, no emit
 ```
 
+Credentials default to the public demo values and can be overridden via environment variables (see `.env.example`) — e.g. `SAUCE_PASSWORD=... bun run test:ui`.
+
 Performance smoke — either with a local [k6](https://grafana.com/docs/k6/latest/set-up/install-k6/) install or via Docker (no install needed):
 
 ```bash
