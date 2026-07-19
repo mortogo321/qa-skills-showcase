@@ -53,11 +53,16 @@ bun run report      # open the HTML report
 bun run typecheck   # TypeScript, no emit
 ```
 
-Performance smoke (requires [k6](https://grafana.com/docs/k6/latest/set-up/install-k6/)):
+Performance smoke — either with a local [k6](https://grafana.com/docs/k6/latest/set-up/install-k6/) install or via Docker (no install needed):
 
 ```bash
 k6 run performance/k6-smoke.js
+
+# or, without installing k6:
+docker run --rm -i grafana/k6 run - <performance/k6-smoke.js
 ```
+
+It also runs in CI as the manually-dispatched `perf-smoke` job.
 
 ## Design notes
 
