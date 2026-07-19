@@ -1,0 +1,19 @@
+{
+  "name": "qa-skills-showcase",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Automated test suite for QA portfolio: Playwright UI/API tests and a k6 smoke check.",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --project=ui",
+    "test:api": "playwright test --project=api",
+    "test:smoke": "playwright test --grep @smoke",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "typescript": "latest",
+    "@types/node": "latest"
+  }
+}

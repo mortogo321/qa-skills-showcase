@@ -1,0 +1,16 @@
+node_modules/
+
+# Playwright output
+test-results/
+playwright-report/
+blob-report/
+
+# Environment
+.env
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Note: package-lock.json is intentionally NOT ignored - keep it committed
+# for reproducible installs.
