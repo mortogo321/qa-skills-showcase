@@ -1,5 +1,7 @@
 # QA Skills Showcase
 
+[![CI](https://github.com/mortogo321/qa-skills-showcase/actions/workflows/ci.yml/badge.svg)](https://github.com/mortogo321/qa-skills-showcase/actions/workflows/ci.yml)
+
 A proof-of-concept portfolio demonstrating **manual** and **automated** software-testing skills, deliberately built around the skills that appear most often in current QA job postings.
 
 Everything here tests two public practice targets, so the whole repo is runnable by anyone:
