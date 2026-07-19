@@ -42,15 +42,15 @@ performance/
 ## Running it
 
 ```bash
-npm install
-npx playwright install chromium
+bun install
+bunx playwright install chromium
 
-npm test            # full suite (UI + API)
-npm run test:ui     # UI project only
-npm run test:api    # API project only
-npm run test:smoke  # @smoke-tagged tests only
-npm run report      # open the HTML report
-npm run typecheck   # TypeScript, no emit
+bun run test        # full suite (UI + API) — note: `bun run test`, not `bun test`
+bun run test:ui     # UI project only
+bun run test:api    # API project only
+bun run test:smoke  # @smoke-tagged tests only
+bun run report      # open the HTML report
+bun run typecheck   # TypeScript, no emit
 ```
 
 Performance smoke (requires [k6](https://grafana.com/docs/k6/latest/set-up/install-k6/)):
