@@ -7,21 +7,30 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  typecheck:
-    if: github.event_name == 'push' || github.event_name == 'pull_request'
+  lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
 
       - run: bun install --frozen-lockfile
+
+      - run: bun run lint
 
       - run: bun run typecheck
 
   test:
-    if: github.event_name == 'push' || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -29,9 +38,11 @@ jobs:
         project: [ui, api]
     name: e2e (${{ matrix.project }})
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
 
       - run: bun install --frozen-lockfile
 
@@ -42,7 +53,7 @@ jobs:
 
       - name: Upload Playwright report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-report-${{ matrix.project }}
           path: playwright-report/
@@ -52,8 +63,16 @@ jobs:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: grafana/setup-k6-action@v1
 
       - run: k6 run performance/k6-smoke.js
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: [lint]
+    steps:
+      - uses: actions/checkout@v7
+
+      - run: docker build -t qa-skills-showcase:ci .

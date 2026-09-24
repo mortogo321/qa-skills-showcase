@@ -3,17 +3,27 @@
   "version": "1.0.0",
   "private": true,
   "description": "Automated test suite for QA portfolio: Playwright UI/API tests and a k6 smoke check.",
+  "packageManager": "bun@1.4.2",
+  "engines": {
+    "bun": ">=1.4.2",
+    "node": ">=22"
+  },
   "scripts": {
     "test": "playwright test",
     "test:ui": "playwright test --project=ui",
     "test:api": "playwright test --project=api",
     "test:smoke": "playwright test --grep @smoke",
     "report": "playwright show-report",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check src tests playwright.config.ts",
+    "lint:fix": "biome check --write src tests playwright.config.ts",
+    "format": "biome format src tests playwright.config.ts",
+    "quality": "bun run typecheck && bun run lint"
   },
   "devDependencies": {
-    "@playwright/test": "latest",
-    "typescript": "latest",
-    "@types/node": "latest"
+    "@biomejs/biome": "2.5.14",
+    "@playwright/test": "1.63.0",
+    "@types/node": "26.6.2",
+    "typescript": "7.0.2"
   }
 }

@@ -4,13 +4,21 @@ node_modules/
 test-results/
 playwright-report/
 blob-report/
+playwright/.cache/
+.psiko/
 
 # Environment
 .env
+.env.local
+
+# Bun
+bun.lockb
 
 # OS junk
 .DS_Store
 Thumbs.db
 
-# Note: package-lock.json is intentionally NOT ignored - keep it committed
-# for reproducible installs.
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/

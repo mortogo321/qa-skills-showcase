@@ -1,6 +1,10 @@
 # QA Skills Showcase
 
 [![CI](https://github.com/mortogo321/qa-skills-showcase/actions/workflows/ci.yml/badge.svg)](https://github.com/mortogo321/qa-skills-showcase/actions/workflows/ci.yml)
+![Bun 1.4.2](https://img.shields.io/badge/bun-1.4.2-black?logo=bun)
+![Playwright 1.63.0](https://img.shields.io/badge/playwright-1.63.0-2EAD33?logo=playwright)
+![TypeScript strict](https://img.shields.io/badge/typescript-strict-blue?logo=typescript)
+![License MIT](https://img.shields.io/badge/license-MIT-green)
 
 A proof-of-concept portfolio demonstrating **manual** and **automated** software-testing skills, deliberately built around the skills that appear most often in current QA job postings.
 
@@ -53,6 +57,17 @@ bun run test:api    # API project only
 bun run test:smoke  # @smoke-tagged tests only
 bun run report      # open the HTML report
 bun run typecheck   # TypeScript, no emit
+bun run lint        # Biome check (lint + format)
+bun run quality     # typecheck + lint
+```
+
+Requires Bun 1.4.2+ and Node 22+ (see `.bun-version`, `packageManager` field).
+
+Docker (pinned runner, no local install needed):
+
+```bash
+docker build -t qa-skills-showcase:ci .
+docker run --rm qa-skills-showcase:ci bun run test:smoke
 ```
 
 Credentials default to the public demo values and can be overridden via environment variables (see `.env.example`) — e.g. `SAUCE_PASSWORD=... bun run test:ui`.
@@ -75,3 +90,7 @@ It also runs in CI as the manually-dispatched `perf-smoke` job.
 - **Tagging** — `@smoke` marks the fast confidence subset; CI retries are enabled only in CI to keep local failures honest.
 - **Traceability** — every automated spec traces back to a written requirement and manual test case, the habit that separates test *strategy* from test *scripts*.
 - **Etiquette** — the k6 script is a smoke test by design; never point real load profiles at third-party demo services.
+
+## License
+
+MIT — see [LICENSE](./LICENSE).
