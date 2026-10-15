@@ -1,5 +1,5 @@
 # Pinned QA runner: Bun + Playwright (Chromium) + k6 smoke (via Docker stage)
-FROM oven/bun:1.4.2 AS base
+FROM oven/bun:1.4.3 AS base
 WORKDIR /app
 
 # ---- deps ----
